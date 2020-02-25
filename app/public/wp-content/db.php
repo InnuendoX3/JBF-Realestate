@@ -1,0 +1,1 @@
+/Users/bryansantamaria/Documents/JBF-Realestate/app/public/wp-content/plugins/query-monitor/wp-content/db.php
