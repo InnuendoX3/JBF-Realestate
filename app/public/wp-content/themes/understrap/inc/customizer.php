@@ -121,6 +121,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 					'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
 					'choices'           => array(
 						'right' => __( 'Right sidebar', 'understrap' ),
+						'jbf-sidebar' => __( 'JBF Right sidebar', 'understrap' ),
 						'left'  => __( 'Left sidebar', 'understrap' ),
 						'both'  => __( 'Left & Right sidebars', 'understrap' ),
 						'none'  => __( 'No sidebar', 'understrap' ),
