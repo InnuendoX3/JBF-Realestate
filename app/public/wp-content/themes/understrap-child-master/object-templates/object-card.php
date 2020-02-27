@@ -1,16 +1,25 @@
 <?php
-//Gets gallery URLs
-$children = get_children([
-    'post_parent' => get_the_ID(),
-    'post_status' => 'inherit',
-    'post_type' => 'attachment',
-]);
-
 $id = get_the_ID();
+
+//Get HTML data for gallery
+$html = get_post_field('post_content', $id);
+
+$array = explode(
+    "<img src=",
+    $html
+);
 
 $images = [];
 
-foreach ($children as $img) $images[] = (array)$img; ?>
+//Extracts URLs from image data
+foreach($array as $tag) {
+    preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $tag, $url);
+
+    $url = $url[0][0];
+
+    if(!empty($url)) $images[] = $url; 
+}
+?>
 
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
@@ -28,7 +37,7 @@ foreach ($children as $img) $images[] = (array)$img; ?>
                                 <?php echo $i == 0 ? "active" : ""?>" 
                             style = "
                                 height: 500px; 
-                                background: url(<?php echo $img['guid'] ?>); 
+                                background: url(<?php echo $img ?>); 
                                 background-size: cover; 
                                 background-position: center"
                             >

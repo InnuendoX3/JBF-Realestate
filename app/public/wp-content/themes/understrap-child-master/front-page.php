@@ -46,6 +46,8 @@ $container = get_theme_mod( 'understrap_container_type' );
                     while( $loop->have_posts() ) :
                         $loop->the_post();
 
+                        echo get_the_title();
+
                         get_template_part('object-templates/object-card');
 
                         endwhile;
