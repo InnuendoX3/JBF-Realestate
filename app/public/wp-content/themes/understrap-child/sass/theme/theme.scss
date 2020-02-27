@@ -1,0 +1,34 @@
+/*
+ Theme Name:   understrap-child
+ Theme URI:    http://example.com/twenty-fifteen-child/
+ Description:  understrap Theme
+ Author:       Bryan, Johan & Fabian
+ Author URI:   http://example.com
+ Template:     understrap
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  understrap
+*/
+$theme-colors: (
+  "primary": #000000,
+  "danger": #ff4136
+);
+
+$body-bg: black;
+$color: black;
+$bg-primary: black;
+
+@import "../../../understrap/sass/theme.scss";
+
+
+
+
+li {
+    a {
+        color:black;
+    }
+}
+
+
