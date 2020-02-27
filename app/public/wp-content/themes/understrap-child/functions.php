@@ -1,14 +1,35 @@
 <?php
-add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
-function my_theme_enqueue_styles()
-{
- 
-    $parent_style = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
- 
-    wp_enqueue_style($parent_style, get_template_directory_uri() . '/style.css');
-    wp_enqueue_style('child-style',
-        get_stylesheet_directory_uri() . '/style.css',
-        array($parent_style),
-        wp_get_theme()->get('Version')
-    );
+/**
+ * Understrap functions and definitions
+ *
+ * @package understrap
+ */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+$understrap_includes = array(
+	'/theme-settings.php',                  // Initialize theme default settings.
+	'/setup.php',                           // Theme setup and custom theme supports.
+	'/widgets.php',                         // Register widget area.
+	'/enqueue.php',                         // Enqueue scripts and styles.
+	'/template-tags.php',                   // Custom template tags for this theme.
+	'/pagination.php',                      // Custom pagination for this theme.
+	'/hooks.php',                           // Custom hooks.
+	'/extras.php',                          // Custom functions that act independently of the theme templates.
+	'/customizer.php',                      // Customizer additions.
+	'/custom-comments.php',                 // Custom Comments file.
+	'/jetpack.php',                         // Load Jetpack compatibility file.
+	'/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker.
+	'/woocommerce.php',                     // Load WooCommerce functions.
+	'/editor.php',                          // Load Editor functions.
+	'/deprecated.php',                      // Load deprecated functions.
+);
+
+foreach ( $understrap_includes as $file ) {
+	$filepath = locate_template( 'inc' . $file );
+	if ( ! $filepath ) {
+		trigger_error( sprintf( 'Error locating /inc%s for inclusion', $file ), E_USER_ERROR );
+	}
+	require_once $filepath;
 }

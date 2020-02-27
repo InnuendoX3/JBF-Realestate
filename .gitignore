@@ -1,4 +1,5 @@
 logs/
 conf/
 app/public/wp-config.php
+app/public/wp-content/themes/understrap/node_modules/
 .DS_Store
