@@ -9,8 +9,6 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-</div><!-- #closing the primary container from /global-templates/left-sidebar-check.php -->
-
 <?php $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' ); ?>
 
 <?php if ( 'jbf-sidebar' === $sidebar_pos) : ?>
