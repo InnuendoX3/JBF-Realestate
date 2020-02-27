@@ -12,13 +12,15 @@
  Text Domain:  understrap
 */
 $theme-colors: (
-  "primary": #000000,
+  "primary": pink,
   "danger": #ff4136
 );
 
+$primary: green !important;
+
 $body-bg: black;
 $color: black;
-$bg-primary: black;
+$bg-primary: rgb(209, 143, 154) !important;
 
 @import "../../../understrap/sass/theme.scss";
 
