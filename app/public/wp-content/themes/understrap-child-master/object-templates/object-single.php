@@ -73,27 +73,31 @@ foreach($array as $tag) {
     </div>
 </div>
 <div class="row">
-    <table class="table">
-        <tbody>
-            <tr>
-                <td>Visnigsdatum</td>
-                <td><?php echo get_post_meta($id, 'visningsdatum', true) ?></td>
-            </tr>
-            <tr>
-                <td>Antal rum</td>
-                <td><?php echo get_post_meta($id, 'antal_rum', true) . " rum"?></td>
-            </tr>
-            <tr>
-                <td>Boarea</td>
-                <td><?php echo get_post_meta($id, 'boarea', true) . " m²"?></td>
-            </tr>
-            <tr>
-                <td>Title - Just for reference</td>
-                <td><?php echo get_the_title() ?></td>
-            </tr>
-        </tbody>
-
-    </table>
+    <div class="col-8">
+        <p>Maybe some description in this area?</p>
+    </div>
+    <div class="col-4">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Visnigsdatum</td>
+                    <td><?php echo get_post_meta($id, 'visningsdatum', true) ?></td>
+                </tr>
+                <tr>
+                    <td>Antal rum</td>
+                    <td><?php echo get_post_meta($id, 'antal_rum', true) . " rum"?></td>
+                </tr>
+                <tr>
+                    <td>Boarea</td>
+                    <td><?php echo get_post_meta($id, 'boarea', true) . " m²"?></td>
+                </tr>
+                <tr>
+                    <td><i>Object Title</i></td>
+                    <td><i><?php echo get_the_title() ?></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <p class="text-muted"><?php // var_dump(the_meta()); ?></p>
 </div>
