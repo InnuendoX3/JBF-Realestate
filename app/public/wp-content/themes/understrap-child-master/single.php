@@ -26,10 +26,9 @@ $container = get_theme_mod( 'understrap_container_type' );
                         
                         <?php the_post(); ?>
 
-                        <?php get_template_part('object-templates/object-card'); ?>
-
+                        <?php get_template_part('object-templates/object-single'); ?>
+                        <?php // get_template_part('object-templates/object-card'); ?>
                         <?php // get_template_part( 'loop-templates/content', 'single' ); ?>
-
                         <?php understrap_post_nav(); ?>
 
                         <?php
