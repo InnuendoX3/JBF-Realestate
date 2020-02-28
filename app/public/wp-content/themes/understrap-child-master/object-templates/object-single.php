@@ -21,12 +21,10 @@ foreach($array as $tag) {
 }
 ?>
 
-        <!-- OBJECT INFO TEMPLATE -->
-        <div class="col-4">
-                <p class="text-muted"><?php echo get_post_meta($id, 'utgangsbud', true)." kr"?></p>
-                <h3 class="testclass"><?php echo get_the_title() ?></h3>
-                <p>Hola Como estas??</p>
-        </div>
+<!-- Behöver vi titeln? -->
+<div class="col">
+    <h3 class="testclass"><?php // echo get_the_title() ?></h3>
+</div>
 
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
@@ -66,3 +64,36 @@ foreach($array as $tag) {
 
     </div>
 <?php endif; ?>
+<div class="row my-3">
+    <div class="col-8">
+        <h3 class="testclass"><?php echo get_post_meta($id, 'adress', true) ?></h3>
+    </div>
+    <div class="col-4 text-right">
+        <p class="text-muted"><?php echo get_post_meta($id, 'utgangsbud', true)." kr"?></p>
+    </div>
+</div>
+<div class="row">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Visnigsdatum</td>
+                <td><?php echo get_post_meta($id, 'visningsdatum', true) ?></td>
+            </tr>
+            <tr>
+                <td>Antal rum</td>
+                <td><?php echo get_post_meta($id, 'antal_rum', true) . " rum"?></td>
+            </tr>
+            <tr>
+                <td>Boarea</td>
+                <td><?php echo get_post_meta($id, 'boarea', true) . " m²"?></td>
+            </tr>
+            <tr>
+                <td>Title - Just for reference</td>
+                <td><?php echo get_the_title() ?></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <p class="text-muted"><?php // var_dump(the_meta()); ?></p>
+</div>
