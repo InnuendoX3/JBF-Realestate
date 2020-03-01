@@ -37,7 +37,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                     $args = [
                         'post__in' => $object_id,
                         'post_type' => 'object',
-                        'category_name' => 'Fritidshus'
+                        'category_name' => '4-rum'
                     ];
                     //Main loop
 

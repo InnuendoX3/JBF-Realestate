@@ -34,15 +34,26 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     <?php 
 
+                    $args = [
+                        'post__in' => $object_id,
+                        'post_type' => 'object',
+                        'category_name' => 'Villa'
+                    ];
                     //Main loop
-                    //Vi behöver hämta ut objekt baserat på kategori, skapa en array som heter loop och lägga "loopnamn"->have_posts()
-                    while( have_posts() ) :
-                        the_post();
-                        echo get_the_title();
 
-                        get_template_part('object-templates/object-card');
+                    $loop = new WP_query($args);
+                    if ($loop->have_posts()) {
+                        //Vi behöver hämta ut objekt baserat på kategori, skapa en array som heter loop och lägga "loopnamn"->have_posts()
+                        while ($loop->have_posts()) :
+                            $loop->the_post();
+                            echo get_the_title();
+                            wp_reset_postdata();
+
+                            get_template_part('object-templates/object-card');
 
                         endwhile;
+                    }
+
                     ?>
 
                 </main><!-- #main -->
