@@ -21,12 +21,17 @@ foreach($array as $tag) {
 }
 ?>
 
+<!-- Behöver vi titeln? -->
+<div class="col">
+    <h3 class="testclass"><?php // echo get_the_title() ?></h3>
+</div>
+
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
     <div class="row rounded">
 
         <!-- IMAGE CAROUSEL TEMPLATE -->
-        <div class="col-8">
+        <div class="col">
             <div id="<?php echo "object".$id?>" class="carousel slide" data-ride="carousel" style="width: 100%"> 
                 <div class="carousel-inner">
 
@@ -57,11 +62,42 @@ foreach($array as $tag) {
             </div>
         </div>
 
-        <!-- OBJECT INFO TEMPLATE -->
-        <div class="col-4">
-                <h3 class="testclass"><?php echo get_the_title() ?></h3>
-                <p class="text-muted"><?php echo get_post_meta($id, 'utgangsbud', true)." kr"?></p>
-                <p></p>
-        </div>
     </div>
 <?php endif; ?>
+<div class="row my-3">
+    <div class="col-8">
+        <h3 class="testclass"><?php echo get_post_meta($id, 'adress', true) ?></h3>
+    </div>
+    <div class="col-4 text-right">
+        <p class="text-muted"><?php echo get_post_meta($id, 'utgangsbud', true)." kr"?></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-8">
+        <p>Maybe some description in this area?</p>
+    </div>
+    <div class="col-4">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Visnigsdatum</td>
+                    <td><?php echo get_post_meta($id, 'visningsdatum', true) ?></td>
+                </tr>
+                <tr>
+                    <td>Antal rum</td>
+                    <td><?php echo get_post_meta($id, 'antal_rum', true) . " rum"?></td>
+                </tr>
+                <tr>
+                    <td>Boarea</td>
+                    <td><?php echo get_post_meta($id, 'boarea', true) . " m²"?></td>
+                </tr>
+                <tr>
+                    <td><i>Object Title</i></td>
+                    <td><i><?php echo get_the_title() ?></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="text-muted"><?php // var_dump(the_meta()); ?></p>
+</div>

@@ -20,13 +20,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <?php if ( is_front_page() && is_home() ) : ?>
-	<?php get_template_part( 'global-templates/hero' ); ?>
+    <?php get_template_part( 'global-templates/hero' ); ?>
 <?php endif; ?>
 
 <div class="wrapper" id="index-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-		<div class="row object-card">
+    <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+    	<div class="row object-card">
         
             <div class="col-md-8">
                 <br>
@@ -46,6 +46,8 @@ $container = get_theme_mod( 'understrap_container_type' );
                     while( $loop->have_posts() ) :
                         $loop->the_post();
 
+                        echo get_the_title();
+
                         get_template_part('object-templates/object-card');
 
                         endwhile;
@@ -61,9 +63,9 @@ $container = get_theme_mod( 'understrap_container_type' );
             <!-- Do the left sidebar check and opens the primary div -->
             <?php get_template_part( 'global-templates/jbf-sidebar-check' ); ?>
             
-		</div><!-- .row -->
+    	</div><!-- .row -->
 
-	</div><!-- #content -->
+    </div><!-- #content -->
 
 </div><!-- #index-wrapper -->
 
