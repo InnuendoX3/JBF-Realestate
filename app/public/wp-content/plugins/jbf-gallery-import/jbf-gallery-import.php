@@ -46,4 +46,26 @@ function jbf_gallery_import($id) {
     return $images;
 }
 
+function jbf_formatted_description($description)
+{
+    
+    $desc = "";
+    $desc_start = substr($description, 0, 200);
+
+    $desc_for_filter = substr(
+        $description,
+        -(strlen($description) - strlen($desc_start))    
+    );
+
+    if (strlen($desc_for_filter) > 0) {
+        $find_me = '.';
+        $position = stripos($desc_for_filter, $find_me);
+        $split_description = -(strlen($desc_for_filter) - $position);
+        $desc = $desc_start.substr($desc_for_filter, 0, $split_description);
+    }
+
+    var_dump($desc);
+    return $desc;
+}
+
 
