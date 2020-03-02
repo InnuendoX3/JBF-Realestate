@@ -9,18 +9,25 @@ function jbf_gallery_import($id) {
     $content = $post_content->post_content;
 
     //Get HTML data for galleries associated with post
-    $html = apply_filters('the_content',$content);
+    $html = apply_filters('the_content', $content);
 
-    //Breaks out individual galleries
-    $galleries = explode("<!-- wp:gallery", $html);
 
-    //Breaks out the latest gallery
-    $tags = $galleries[count($galleries -1)];
+    $tags = "";
+    //If gallery tag present
+    if(strpos("<!-- wp:gallery", $html)) {
+        //Breaks out individual galleries if present
+        $galleries = explode("<!-- wp:gallery", $html);
+
+        //Breaks out the latest gallery
+        $tags = $galleries[count($galleries -1)];
+    } else {
+        $tags = $html;
+    }
 
     //Breaks out image tags
     $tags = explode(
         "<img src=",
-        $html
+        $tags
     );
 
     $images = [];
