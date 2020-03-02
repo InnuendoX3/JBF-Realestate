@@ -24,6 +24,8 @@ function jbf_gallery_import($id) {
         if(!empty($url)) $images[] = $url; 
     }
 
+    var_dump($images);
+    
     return $images;
 }
 

@@ -37,7 +37,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                     //Get all objects
                     $args = array(
                         'post_type'      => 'object',
-                        'posts_per_page' => '5'
+                        'posts_per_page' => '10000'
                     );
 
                     $loop = new WP_Query( $args );
