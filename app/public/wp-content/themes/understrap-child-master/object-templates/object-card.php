@@ -1,24 +1,5 @@
 <?php
-$id = get_the_ID();
-
-//Get HTML data for gallery
-$html = get_post_field('post_content', $id);
-
-$array = explode(
-    "<img src=",
-    $html
-);
-
-$images = [];
-
-//Extracts URLs from image data
-foreach($array as $tag) {
-    preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $tag, $url);
-
-    $url = $url[0][0];
-
-    if(!empty($url)) $images[] = $url; 
-}
+    $images = jbf_gallery_import(get_the_ID());
 ?>
 
 <?php if(count($images) > 0) :?>
@@ -50,6 +31,7 @@ foreach($array as $tag) {
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
+                
                 <a class="carousel-control-next" href="<?php echo "#object".$id ?>"  role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
