@@ -39,10 +39,41 @@
             </div>
         </div>
 
+        <?php 
+        
+        //Checks for a "." in the description meta and splits the description at the first "."
+        $description = get_post_meta($id, 'description', true);
+        function decoded_description($id, $description)
+        {
+            function multineedle_stripos($haystack, $needles, $offset = 0)
+            {
+                foreach ($needles as $needle) {
+                    $found[$needle] = stripos($haystack, $needle, $offset);
+                }
+                return $found;
+            }
+            
+            $str1 = "";
+            if ($description) {
+                $find_me = array('.', '?', '!');
+                $position = multineedle_stripos($description, $find_me);
+                $split_description = -(strlen($description) - $position['.']);
+                $str1 = substr($description, 0, $split_description);
+            }
+            return $str1;
+        }
+
+        ?>
         <!-- OBJECT INFO TEMPLATE -->
         <div class="col-4">
                 <h3 class="testclass"><?php echo get_the_title() ?></h3>
-                <p class="text-muted"><?php echo get_post_meta($id, 'utgangsbud', true)." kr"?></p>
+                <span><?php echo get_post_meta($id, 'adress', true)?></span>
+                <p class="text-muted"><?php echo get_post_meta($id, 'utgangsbud', true)." kr "?> 
+                <span><?php echo get_post_meta($id, 'boarea', true) . " m² "?></span> 
+                <span><?php echo get_post_meta($id, 'antal_rum', true) . " rum "?></span>
+                </p>
+                <p><?php
+                    //echo decoded_description($id, $description) ."...";?></p>
                 <p></p>
         </div>
     </div>
