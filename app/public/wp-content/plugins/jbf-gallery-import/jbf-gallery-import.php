@@ -5,8 +5,11 @@ Text Domain: jbf
 */
 function jbf_gallery_import($id) {
 
+    $post_content = get_post($id);
+    $content = $post_content->post_content;
+
     //Get HTML data for gallery
-    $html = get_post_field('post_content', $id);
+    $html = apply_filters('the_content',$content);
 
     $array = explode(
         "<img src=",
