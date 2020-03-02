@@ -74,7 +74,7 @@ foreach($array as $tag) {
 </div>
 <div class="row">
     <div class="col-8">
-        <p>Maybe some description in this area?</p>
+        <p><?php echo get_post_meta($id, 'description', true) ?></p>
     </div>
     <div class="col-4">
         <table class="table">
