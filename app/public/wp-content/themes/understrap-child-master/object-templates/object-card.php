@@ -1,4 +1,5 @@
 <?php
+    //Gets array of images from gallery associated with post
     $images = jbf_gallery_import(get_the_ID());
 ?>
 
