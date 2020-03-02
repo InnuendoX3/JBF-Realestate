@@ -37,9 +37,9 @@ $container = get_theme_mod( 'understrap_container_type' );
                     $args = [
                         'post__in' => $object_id,
                         'post_type' => 'object',
-                        'category_name' => '4-rum'
+                        'category_name' => '2-rum'
                     ];
-
+                    
                     //Main loop
                     $loop = new WP_query($args);
                     if ($loop->have_posts()) {
