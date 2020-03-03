@@ -50,6 +50,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                         endwhile;
                     ?>
+                    <!-- Empty div for space test -->
+                    <div></div>
 
                 </main><!-- #main -->
 

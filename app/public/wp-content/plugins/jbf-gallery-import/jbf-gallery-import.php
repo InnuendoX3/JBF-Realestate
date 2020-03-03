@@ -33,26 +33,27 @@ function jbf_gallery_import($id) {
     $images = [];
 
     //Extracts URLs from image data
-    foreach($tags as $tag) {
+    foreach ($tags as $tag) {
         preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $tag, $url);
 
         $url = $url[0][0];
 
-        if(!empty($url)) $images[] = $url; 
+        if (!empty($url)) $images[] = $url;
     }
+
+    //var_dump($images);
     
     return $images;
 }
-
+//Splits the descrition on the object card after 100 characters on the first dot it can find.
 function jbf_formatted_description($description)
 {
-    
     $desc = "";
-    $desc_start = substr($description, 0, 200);
+    $desc_start = substr($description, 0, 100);
 
     $desc_for_filter = substr(
         $description,
-        -(strlen($description) - strlen($desc_start))    
+        -(strlen($description) - strlen($desc_start))
     );
 
     if (strlen($desc_for_filter) > 0) {
@@ -62,7 +63,6 @@ function jbf_formatted_description($description)
         $desc = $desc_start.substr($desc_for_filter, 0, $split_description);
     }
 
+    //var_dump($desc);
     return $desc;
 }
-
-
