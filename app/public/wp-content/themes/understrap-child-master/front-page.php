@@ -33,30 +33,43 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <main class="site-main" id="main">
 
                     <?php 
-                    
-                    //Get all objects
+
+                    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
                     $args = array(
-                        'post_type'      => 'object',
-                        'posts_per_page' => '10000',
-                        'post_status' => 'publish'
+                    'post_type' => 'object',
+                    'orderby' => 'post_date',
+                    'post_status' => 'publish',
+                    'perm' => 'readable',
+                    'order' => 'desc',
+                    'posts_per_page' => 5,
+                    'paged' => $paged
                     );
+                                        
+                    //Get all objects
+                    /*$args = array(
+                        'post_type'      => 'object',
+                        'posts_per_page' => '5',
+                        'post_status' => 'publish'
+                    );*/
 
                     $loop = new WP_Query( $args );
 
                     //Main loop
-                    while( $loop->have_posts() ) :
-                        $loop->the_post();
+                    while(have_posts() ) :
+                        the_post();
+                        
                         get_template_part('object-templates/object-card');
 
                         endwhile;
                     ?>
-                    <!-- Empty div for space test -->
-                    <div></div>
 
                 </main><!-- #main -->
 
                 <!-- The pagination component -->
                 <?php understrap_pagination(); ?>
+
+                <?php wp_reset_postdata(); ?>
 
             </div><!-- .col -->
 

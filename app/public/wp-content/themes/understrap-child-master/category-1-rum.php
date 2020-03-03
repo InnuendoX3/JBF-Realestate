@@ -25,7 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div class="wrapper" id="index-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+    <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 		<div class="row object-card">
         
             <div class="col-md-8">
@@ -46,7 +46,6 @@ $container = get_theme_mod( 'understrap_container_type' );
                         //Vi behöver hämta ut objekt baserat på kategori, skapa en array som heter loop och lägga "loopnamn"->have_posts()
                         while ($loop->have_posts()) :
                             $loop->the_post();
-                            echo get_the_title();
                             wp_reset_postdata();
 
                             get_template_part('object-templates/object-card');

@@ -31,3 +31,12 @@ function add_child_theme_textdomain() {
     load_child_theme_textdomain( 'understrap-child', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
+
+function load_objects( $query ) {
+    if ( $query->is_front_page() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'object' ) );
+        $query->set( 'posts_per_page', 5 );
+        $query->set( 'post_status', 'publish' );
+    }
+}
+add_action( 'pre_get_posts', 'load_objects' );
