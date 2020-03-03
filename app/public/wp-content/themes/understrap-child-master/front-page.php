@@ -37,7 +37,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                     //Get all objects
                     $args = array(
                         'post_type'      => 'object',
-                        'posts_per_page' => '4',
+                        'posts_per_page' => '5',
                         'post_status' => 'publish',
                         'meta_key' => 'utvalt_objekt',
                         'meta_value' => true
