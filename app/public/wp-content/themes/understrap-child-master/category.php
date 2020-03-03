@@ -25,33 +25,45 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div class="wrapper" id="index-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+    <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 		<div class="row object-card">
         
             <div class="col-md-8">
                 <br>
                 <main class="site-main" id="main">
-
                     <?php 
-
+                    $category = get_queried_object()->slug;
                     $args = [
-                        'post__in' => $object_id,
                         'post_type' => 'object',
-                        'category_name' => '2-rum'
+                        'posts_per_page' => 1,
+                        'post_status' => 'publish',
+                        'category_name' => $category,
+                        'meta_key' => 'utvalt_objekt',
+                        'meta_value' => true
                     ];
-                    
-                    //Main loop
-                    $loop = new WP_query($args);
-                    if ($loop->have_posts()) {
-                        //Vi behöver hämta ut objekt baserat på kategori, skapa en array som heter loop och lägga "loopnamn"->have_posts()
-                        while ($loop->have_posts()) :
-                            $loop->the_post();
-                            wp_reset_postdata();
 
+                    $query_loop = new WP_Query( $args );
+
+                    $chosen_ID = $query_loop->posts[0]->ID;
+                    ?>
+
+                    <?php while($query_loop->have_posts()) : ?>
+                        <?php $query_loop->the_post(); ?>
+                        <h1>UTVALT OBJEKT</h1>
+                        <?php get_template_part('object-templates/object-card'); ?>
+                        <h1>UTVALT OBJEKT</h1>
+                    <?php endwhile; 
+
+                    wp_reset_postdata();
+
+                    while (have_posts()) :
+                        the_post();
+
+                        if(get_the_ID() !== $chosen_ID) {
                             get_template_part('object-templates/object-card');
+                        }
 
-                        endwhile;
-                    }
+                    endwhile;
 
                     ?>
 
