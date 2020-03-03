@@ -37,17 +37,18 @@ $container = get_theme_mod( 'understrap_container_type' );
                     //Get all objects
                     $args = array(
                         'post_type'      => 'object',
-                        'posts_per_page' => '10000',
-                        'post_status' => 'publish'
+                        'posts_per_page' => '4',
+                        'post_status' => 'publish',
+                        'meta_key' => 'utvalt_objekt',
+                        'meta_value' => true
                     );
 
-                    $loop = new WP_Query( $args );
+                    $queryLoop = new WP_Query( $args );
 
-                    //Main loop
-                    while( $loop->have_posts() ) :
-                        $loop->the_post();
-
-                        //echo get_the_title();
+                    //Main queryLoop
+                    while( $queryLoop->have_posts() ) :
+                        $queryLoop->the_post();
+                        //get_template_part('object-templates/object-chosen');
 
                         get_template_part('object-templates/object-card');
 
