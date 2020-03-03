@@ -33,12 +33,29 @@ function add_child_theme_textdomain() {
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 
 function load_objects( $query ) {
+    if (is_admin() || !$query->is_main_query()) {
+        return $query;
+    }
     if ( $query->is_front_page() && $query->is_main_query() ) {
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );
         $query->set( 'post_status', 'publish' );
         $query->set( 'meta_key', 'utvalt_objekt' );
         $query->set( 'meta_value', true );
+    }
+
+    $qobj = get_queried_object();
+    if (isset($qobj->taxonomy) && 'category' == $qobj->taxonomy ) {
+        $term = get_term($qobj->term_id);
+        /*if (!is_wp_error($term) && $term->parent === '45') { // replace 45 with whatever the research parent category is
+            $query->set('orderby', 'title');
+            $query->set('order', 'asc');
+        }*/
+
+        $query->set('category_name', $qobj->slug);
+
+        var_dump($qobj);
+        $query->set( 'post_type', array( 'object' ) );
     }
 }
 add_action( 'pre_get_posts', 'load_objects' );

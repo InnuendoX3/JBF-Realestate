@@ -34,7 +34,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     <?php 
 
-                    $args = [
+                    /*$args = [
                         'post__in' => $object_id,
                         'post_type' => 'object',
                         'category_name' => 'Radhus'
@@ -51,7 +51,14 @@ $container = get_theme_mod( 'understrap_container_type' );
                             get_template_part('object-templates/object-card');
 
                         endwhile;
-                    }
+                    }*/
+
+                    while (have_posts()) :
+                        the_post();
+
+                        get_template_part('object-templates/object-card');
+
+                    endwhile;
 
                     ?>
 

@@ -34,7 +34,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     <?php 
 
-                    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                    /*$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
                     $args = array(
                     'post_type' => 'object',
@@ -53,7 +53,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                         'post_status' => 'publish'
                     );*/
 
-                    $queryLoop = new WP_Query( $args );
+                    //$queryLoop = new WP_Query( $args );
 
                     //Main loop
                     while(have_posts() ) :
