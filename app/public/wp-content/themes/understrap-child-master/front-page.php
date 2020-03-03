@@ -26,41 +26,50 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="wrapper" id="index-wrapper">
 
     <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-    	<div class="row object-card">
+    	<div class="row">
         
             <div class="col-md-8">
                 <br>
                 <main class="site-main" id="main">
 
                     <?php 
-                    
-                    //Get all objects
+
+                    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
                     $args = array(
+                    'post_type' => 'object',
+                    'orderby' => 'post_date',
+                    'post_status' => 'publish',
+                    'perm' => 'readable',
+                    'order' => 'desc',
+                    'posts_per_page' => 5,
+                    'paged' => $paged
+                    );
+                                        
+                    //Get all objects
+                    /*$args = array(
                         'post_type'      => 'object',
                         'posts_per_page' => '5',
-                        'post_status' => 'publish',
-                        'meta_key' => 'utvalt_objekt',
-                        'meta_value' => true
-                    );
+                        'post_status' => 'publish'
+                    );*/
 
                     $queryLoop = new WP_Query( $args );
 
-                    //Main queryLoop
-                    while( $queryLoop->have_posts() ) :
-                        $queryLoop->the_post();
-                        //get_template_part('object-templates/object-chosen');
-
+                    //Main loop
+                    while(have_posts() ) :
+                        the_post();
+                        
                         get_template_part('object-templates/object-card');
 
                         endwhile;
                     ?>
-                    <!-- Empty div for space test -->
-                    <div></div>
 
                 </main><!-- #main -->
 
                 <!-- The pagination component -->
                 <?php understrap_pagination(); ?>
+
+                <?php wp_reset_postdata(); ?>
 
             </div><!-- .col -->
 

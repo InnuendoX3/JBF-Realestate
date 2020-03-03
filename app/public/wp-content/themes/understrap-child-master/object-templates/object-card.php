@@ -18,6 +18,7 @@
                         <div 
                             class = "
                                 carousel-item 
+                                jbf-carousel-img
                                 <?php echo $i == 0 ? "active" : ""?>" 
                             style = "
                                 height: 249px;
@@ -58,7 +59,7 @@
             </div> <br>
                 <p class="description">
                     <?php
-                        echo jbf_formatted_description($description) ."...";
+                        echo jbf_formatted_description($description) . ".";
                     ?>
                 </p>
                 <p></p>
