@@ -28,7 +28,7 @@ foreach($array as $tag) {
 
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
-    <div class="row rounded">
+    <div class="row">
 
         <!-- IMAGE CAROUSEL TEMPLATE -->
         <div class="col">
