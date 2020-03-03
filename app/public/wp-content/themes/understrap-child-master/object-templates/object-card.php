@@ -5,23 +5,21 @@
 
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
-    <div class="row m-2 rounded">
+    <div class="row m-4 jbf-object-card jbf-rounded">
 
         <!-- IMAGE CAROUSEL TEMPLATE -->
-        <div class="col-8">
-            <div id="<?php echo "object".$id?>" class="carousel slide" data-ride="carousel" style="width: 100%"> 
-                <div class="carousel-inner">
+        <div class="col-8 jbf-rounded">
+            <div id="<?php echo "object".$id?>" class="carousel slide jbf-rounded jbf-carousel-container" data-ride="carousel" style="width: 100%"> 
+                <div class="carousel-inner jbf-carousel-container">
 
                     <?php foreach($images as $i => $img) : ?>
                         <div 
                             class = "
                                 carousel-item 
+                                jbf-carousel-img
                                 <?php echo $i == 0 ? "active" : ""?>" 
                             style = "
-                                height: 500px; 
-                                background: url(<?php echo $img ?>); 
-                                background-size: cover; 
-                                background-position: center"
+                                background: url(<?php echo $img ?>);"
                             >
                         </div>
                     <?php endforeach; ?>
@@ -55,7 +53,7 @@
                 </p>
                 <p>
                     <?php
-                        echo jbf_formatted_description($description) ."...";
+                        echo jbf_formatted_description($description) . ".";
                     ?>
                 </p>
                 <p></p>

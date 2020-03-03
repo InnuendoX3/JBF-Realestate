@@ -26,7 +26,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="wrapper" id="index-wrapper">
 
     <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-    	<div class="row object-card">
+    	<div class="row">
         
             <div class="col-md-8">
                 <br>
@@ -46,7 +46,6 @@ $container = get_theme_mod( 'understrap_container_type' );
                     //Main loop
                     while( $loop->have_posts() ) :
                         $loop->the_post();
-
                         get_template_part('object-templates/object-card');
 
                         endwhile;
