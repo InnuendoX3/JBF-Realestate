@@ -53,7 +53,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                         'post_status' => 'publish'
                     );*/
 
-                    $loop = new WP_Query( $args );
+                    $queryLoop = new WP_Query( $args );
 
                     //Main loop
                     while(have_posts() ) :
