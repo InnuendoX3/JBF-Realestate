@@ -20,7 +20,7 @@
                                 carousel-item 
                                 <?php echo $i == 0 ? "active" : ""?>" 
                             style = "
-                                height: 300px;
+                                height: 249px;
                                 background: url(<?php echo $img ?>);
                                 background-size: cover;
                                 background-position: center"
@@ -30,12 +30,12 @@
                     </a>
                 </div>
 
-                <a class="carousel-control-prev" href="<?php echo "#object".$id ?>"  role="button" data-slide="prev">
+                <a class="carousel-control-prev next-object" href="<?php echo "#object".$id ?>"  role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 
-                <a class="carousel-control-next" href="<?php echo "#object".$id ?>"  role="button" data-slide="next">
+                <a class="carousel-control-next next-object" href="<?php echo "#object".$id ?>"  role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -48,7 +48,7 @@
         $description = get_post_meta($id, 'description', true);
         ?>
         <!-- OBJECT INFO TEMPLATE -->
-        <div class="col-4 object-info-container">
+        <div class="col-4 object-info-container overflow-auto">
                 <h3 class="testclass"><a class="object-title" href="<?php the_permalink(); ?>"><?php echo get_the_title();?></h3></a>
                 <span class="adress"><i class="fas fa-home"></i> <?php echo get_post_meta($id, 'adress', true)?> </span>
             <div>

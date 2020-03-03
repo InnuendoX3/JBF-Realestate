@@ -52,10 +52,10 @@ foreach($array as $tag) {
                 </div>
 
                 <a class="carousel-control-prev" href="<?php echo "#object".$id ?>"  role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-prev-icon next-object" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="<?php echo "#object".$id ?>"  role="button" data-slide="next">
+                <a class="carousel-control-next next-object" href="<?php echo "#object".$id ?>"  role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -66,13 +66,13 @@ foreach($array as $tag) {
 <?php endif; ?>
 <div class="row my-3">
     <div class="col-8">
-        <h3 class="testclass"><?php echo get_post_meta($id, 'adress', true) ?></h3>
+        <h3 class="single-title"><?php echo get_post_meta($id, 'title', true) ?></h3>
     </div>
     <div class="col-4 text-right">
-        <p class="text-muted"><?php echo get_post_meta($id, 'utgangsbud', true)." kr"?></p>
+        <p class="single-utgangsbud"><?php echo get_post_meta($id, 'utgangsbud', true)." kr"?></p>
     </div>
 </div>
-<div class="row">
+<div class="row single-object-container">
     <div class="col-8">
         <p><?php echo get_post_meta($id, 'description', true) ?></p>
     </div>
@@ -92,8 +92,8 @@ foreach($array as $tag) {
                     <td><?php echo get_post_meta($id, 'boarea', true) . " m²"?></td>
                 </tr>
                 <tr>
-                    <td><i>Object Title</i></td>
-                    <td><i><?php echo get_the_title() ?></i></td>
+                    <td><i>Adress</i></td>
+                    <td><i><?php echo get_post_meta($id, 'adress', true) ?></i></td>
                 </tr>
             </tbody>
         </table>
