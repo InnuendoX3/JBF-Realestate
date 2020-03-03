@@ -40,8 +40,6 @@ function jbf_gallery_import($id) {
 
         if(!empty($url)) $images[] = $url; 
     }
-
-    var_dump($images);
     
     return $images;
 }
@@ -64,7 +62,6 @@ function jbf_formatted_description($description)
         $desc = $desc_start.substr($desc_for_filter, 0, $split_description);
     }
 
-    var_dump($desc);
     return $desc;
 }
 

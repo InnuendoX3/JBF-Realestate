@@ -5,7 +5,7 @@
 
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
-    <div class="row rounded">
+    <div class="row m-2 rounded">
 
         <!-- IMAGE CAROUSEL TEMPLATE -->
         <div class="col-8">
