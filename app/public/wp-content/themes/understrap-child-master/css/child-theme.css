@@ -11635,8 +11635,8 @@ figure.woocommerce-product-gallery__wrapper {
       #nav_menu-2 .menu-sidebar-1-container ul li ul li a {
         background: white;
         padding-left: 14px;
-        color: black;
         border: none;
+        color: rgba(0, 0, 0, 0.6);
         border-radius: 0;
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-top: none; }
@@ -11708,6 +11708,7 @@ figure.woocommerce-product-gallery__wrapper {
   font-size: 18px;
   font-weight: 400; }
 
+<<<<<<< HEAD
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11726,6 +11727,10 @@ figure.woocommerce-product-gallery__wrapper {
       color: #28a533; }
     .container .omoss-content-container .omoss-container .omoss-paragrafs {
       font-size: 16px; }
+=======
+.hidden {
+  display: none; }
+>>>>>>> 340b47c6b0dcb6c0ac86cd92e1259312b4792d71
 
 /*
 * Use existing Bootstrap 4 classes and

@@ -30,8 +30,8 @@
                         a {
                             background: white;
                             padding-left: 14px;
-                            color: black;
                             border: none;
+                            color: rgba(0,0,0,0.6);
                             border-radius: 0;
                             border: 1px solid rgba(0,0,0,0.1);
                             border-top: none;
@@ -125,6 +125,7 @@
     font-weight: 400;
 }
 
+<<<<<<< HEAD
 .container {
     display: flex;
     justify-content: center;
@@ -149,3 +150,8 @@
 }
 }
 
+=======
+.hidden  {
+    display: none;
+}
+>>>>>>> 340b47c6b0dcb6c0ac86cd92e1259312b4792d71
