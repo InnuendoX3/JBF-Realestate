@@ -34,27 +34,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     <?php 
 
-                    /*$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-
-                    $args = array(
-                    'post_type' => 'object',
-                    'orderby' => 'post_date',
-                    'post_status' => 'publish',
-                    'perm' => 'readable',
-                    'order' => 'desc',
-                    'posts_per_page' => 5,
-                    'paged' => $paged
-                    );
-                                        
-                    //Get all objects
-                    /*$args = array(
-                        'post_type'      => 'object',
-                        'posts_per_page' => '5',
-                        'post_status' => 'publish'
-                    );*/
-
-                    //$queryLoop = new WP_Query( $args );
-
                     //Main loop
                     while(have_posts() ) :
                         the_post();
@@ -70,6 +49,8 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <?php understrap_pagination(); ?>
 
                 <?php wp_reset_postdata(); ?>
+
+                <?php var_dump(get_categories()) ?>
 
             </div><!-- .col -->
 

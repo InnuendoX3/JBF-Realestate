@@ -44,6 +44,9 @@ function jbf_gallery_import($id) {
     //var_dump($images);
     
     return $images;
+
+    //Finns det något sätt att särskilja borttagna 
+    //bilder i galleriet vs bilder som ligger i galleriet för nuvarande via metadata?
 }
 //Splits the descrition on the object card after 100 characters on the first dot it can find.
 function jbf_formatted_description($description)
