@@ -6,9 +6,9 @@
  * Author: Johan - Bryan - Fabian
  */
 
-add_action( 'init', 'wpsites_remove_author_capabilities' );
+add_action( 'init', 'remove_author_capabilities' );
 
-function wpsites_remove_author_capabilities() {
+function remove_author_capabilities() {
 
     $author = get_role( 'author' );
 
@@ -18,7 +18,6 @@ function wpsites_remove_author_capabilities() {
     );
 
     foreach ( $caps as $cap ) {
-
         $author->remove_cap( $cap );
     }
 }
