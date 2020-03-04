@@ -12,6 +12,12 @@ function jbf_load_search()
 
 add_action('widgets_init', 'jbf_load_search');
 
+function jbf_load_script() {
+    wp_enqueue_script( 'jbf.js', plugins_url( '/js/jbf.js', __FILE__ ));
+}
+
+add_action('wp_enqueue_scripts','jbf_load_script');
+
 // Creating the widget 
 class jbf_search extends WP_Widget
 {
@@ -35,11 +41,12 @@ class jbf_search extends WP_Widget
 
     public function widget($args, $instance)
     {
+
         $categories = get_categories();
 
         $categories_array = [];
 
-        foreach($categories as $key => $category) {
+        foreach($categories as $category) {
             $categories_array[] = (array)$category;
         }
         $categories = $categories_array;
@@ -47,7 +54,7 @@ class jbf_search extends WP_Widget
         $category_hierarchy = [];
 
         foreach($categories as $category) {
-            if($category['category_parent'] == 0 && $category['slug'] !== 'uncategorized') {
+            if($category['category_parent'] === 0 && $category['slug'] !== 'uncategorized') {
                 $category['children'] = [];
                 $category_hierarchy[] = $category;
             }
@@ -61,14 +68,34 @@ class jbf_search extends WP_Widget
             }
         }
 
-        var_dump($category_hierarchy);
-
         ?>
-            <form>
-                <input type="text" class="form-control mb-2">
-                <input type="text" class="form-control mb-2">
-                <input type="text" class="form-control mb-2">
-                <input type="submit" class="btn btn-primary" value="Submit">
+            <h5>Sök</h5>
+            <form id="jbf-search">
+                <select class="form-control mb-2" name="category" id="jbf-category-parents">
+                    <option value="">Välj en typ av bostad</option>
+
+                    <?php foreach($category_hierarchy as $category) : ?>
+                    <option value="<?php echo $category['slug'] ?>">
+                        <?php echo $category['name'] ?>
+                    </option>
+                    <?php endforeach; ?>
+
+                </select>
+                <div id="jbf-search-category-children">
+                    <?php foreach($category_hierarchy as $category) : ?>
+                        <select class="form-control mb-2 hidden" name="<?php echo $category['slug'].'-children' ?>" id="<?php echo $category['slug'].'-children' ?>">
+                            <option value="">...</option>
+                            <?php foreach($category['children'] as $child) : ?>
+                                <option value="<?php echo $child['slug'] ?>">
+                                    <?php echo $child['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+
+                        </select>
+                    <?php endforeach; ?>
+                </div>
+
+                <input type="submit" class="btn btn-primary w-100" value="Sök">
             </form>
 
         <?php
