@@ -32,28 +32,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <br>
                 <main class="site-main" id="main">
 
-                    <?php 
-
-                    /*$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-
-                    $args = array(
-                    'post_type' => 'object',
-                    'orderby' => 'post_date',
-                    'post_status' => 'publish',
-                    'perm' => 'readable',
-                    'order' => 'desc',
-                    'posts_per_page' => 5,
-                    'paged' => $paged
-                    );
-                                        
-                    //Get all objects
-                    /*$args = array(
-                        'post_type'      => 'object',
-                        'posts_per_page' => '5',
-                        'post_status' => 'publish'
-                    );*/
-
-                    //$queryLoop = new WP_Query( $args );
+                    <?php
 
                     //Main loop
                     while(have_posts() ) :
