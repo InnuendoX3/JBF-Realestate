@@ -32,7 +32,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <br>
                 <main class="site-main" id="main">
 
-                    <?php
+                    <?php 
 
                     //Main loop
                     while(have_posts() ) :
@@ -49,6 +49,8 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <?php understrap_pagination(); ?>
 
                 <?php wp_reset_postdata(); ?>
+
+                <?php var_dump(get_categories()) ?>
 
             </div><!-- .col -->
 
