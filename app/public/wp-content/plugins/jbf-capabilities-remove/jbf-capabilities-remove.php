@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: JBF Capabilities (Remove)
- * Description: Disable Author for publishing objects. Disable Editor for deleting objects.
+ * Description: Disable Author for deleting/publishing objects. Disable Editor for deleting objects.
  * Version: 1.0
  * Author: Johan - Bryan - Fabian
  */
@@ -15,6 +15,7 @@ function remove_author_capabilities() {
     $caps = array(
         'delete_posts',
         'delete_published_posts',
+        'publish_posts'
     );
 
     foreach ( $caps as $cap ) {
