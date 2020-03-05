@@ -6,7 +6,6 @@
  * Author: Johan - Bryan - Fabian
  */
 
-add_action( 'init', 'add_author_capabilities' );
 
 function add_author_capabilities() {
 
@@ -19,7 +18,23 @@ function add_author_capabilities() {
     );
 
     foreach ( $caps as $cap ) {
-
         $author->add_cap( $cap );
     }
 }
+
+function add_editor_capabilities() {
+
+    $editor = get_role( 'editor' );
+
+    $caps = array(
+        'delete_posts',
+        'delete_published_posts'
+    );
+
+    foreach ( $caps as $cap ) {
+        $editor->add_cap( $cap );
+    }
+}
+
+add_action( 'init', 'add_author_capabilities' );
+add_action( 'init', 'add_editor_capabilities' );
