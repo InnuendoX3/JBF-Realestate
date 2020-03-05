@@ -125,33 +125,39 @@
     font-weight: 400;
 }
 
-<<<<<<< HEAD
 .container {
     display: flex;
     justify-content: center;
 
-.omoss-content-container {
+    .omoss-content-container {
 
-    .omoss-container {
+        .omoss-container {
+            padding: 20px;
+            margin-bottom: 16px;
+            max-width: 50vw;
+            margin-left: 0px;
+            overflow: hidden;
+        
+            .omoss-title {
+                font-size: 24px;
+                color: #28a533;
+            }
+            .omoss-paragrafs {
+                font-size: 16px;
+            }
+        }
+    }
+    .kontakt-content-container {
         padding: 20px;
         margin-bottom: 16px;
         max-width: 50vw;
-        margin-left: 0px;
-        overflow: hidden;
-    
-        .omoss-title {
-            font-size: 24px;
-            color: #28a533;
-        }
-        .omoss-paragrafs {
-            font-size: 16px;
+        .wpcf7, .kontakt-contact-form {
+        float: left;
         }
     }
-}
+
 }
 
-=======
 .hidden  {
     display: none;
 }
->>>>>>> 340b47c6b0dcb6c0ac86cd92e1259312b4792d71
