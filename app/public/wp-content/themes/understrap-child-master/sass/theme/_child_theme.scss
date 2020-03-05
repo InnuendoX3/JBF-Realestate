@@ -1,21 +1,26 @@
+$boxshadow: 0px 4px 5px 0px rgba(0,0,0,0.1);
+
 #nav_menu-2 {
+    margin-top: -10px;
+    width: 100%;
     .menu-sidebar-1-container {
         ul {
             list-style-type: none;
             color: white;
             padding: 0;
-
+            
             li {
                 margin-top: 10px;
+                box-shadow: $boxshadow;
 
                 a {
-                    color: rgba(0,0,0,0.8);
-                    background: rgba(0,0,0,0.05);;
+                    color: white;
+                    background: #28a533;
                     padding: 5px;
                     padding-left: 10px;
                     width: 100%;
                     display: block;
-                    border-bottom: 4px solid #28a533;
+                    //border-bottom: 4px solid #28a533;
                     border-radius: 5px 5px 0 0;
 
                     &:hover {
@@ -47,13 +52,14 @@
     }
 }
 /*.object-card {
+
     
 }*/
 .object-container {
     padding: 0;
     margin-bottom: 16px;
     border:1px solid #ddd;
-    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: $boxshadow;
     margin-left: 0px;
     overflow: hidden;
 
@@ -125,10 +131,22 @@
     font-weight: 400;
 }
 
-<<<<<<< HEAD
 .container {
     display: flex;
     justify-content: center;
+}
+
+.jbf-transparent-primary {
+    background: #28a53283;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 15px 0;
+
+    h5 {
+        margin: 0;
+    }
+}
 
 .omoss-content-container {
 
@@ -148,10 +166,30 @@
         }
     }
 }
-}
 
-=======
 .hidden  {
     display: none;
 }
->>>>>>> 340b47c6b0dcb6c0ac86cd92e1259312b4792d71
+
+.collapsed {
+    height: 0;
+    overflow: hidden;
+}
+
+#jbf-search {
+    width: 100%;
+    #jbf-search-tags {
+        .jbf-checkbox {
+            label {
+                color: white;
+                display: inline-block;
+                background: rgb(158, 158, 158);
+                box-shadow: $boxshadow;
+            }
+        }
+    }
+
+    input[type=submit] {
+        box-shadow: $boxshadow;
+    }
+}

@@ -29,7 +29,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<div class="row object-card">
         
             <div class="col-md-8">
-                <br>
                 <main class="site-main" id="main">
                     <?php 
                     $category = get_queried_object()->slug;
@@ -49,9 +48,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     <?php while($query_loop->have_posts()) : ?>
                         <?php $query_loop->the_post(); ?>
-                        <h1>UTVALT OBJEKT</h1>
-                        <?php get_template_part('object-templates/object-card'); ?>
-                        <h1>UTVALT OBJEKT</h1>
+                        <div class="pt-2 pb-2">
+                            <?php get_template_part('object-templates/object-chosen'); ?>
+                        </div>
                     <?php endwhile; 
 
                     wp_reset_postdata();

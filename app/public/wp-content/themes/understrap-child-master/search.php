@@ -35,8 +35,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     //Main loop
                     while(have_posts() ) :
-                        the_post();                      
-                        get_template_part('object-templates/object-chosen');
+                        the_post();
+                        
+                        get_template_part('object-templates/object-card');
+
                         endwhile;
                     ?>
 

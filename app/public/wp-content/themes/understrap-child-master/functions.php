@@ -36,7 +36,14 @@ function load_objects( $query ) {
     if (is_admin() || !$query->is_main_query()) {
         return $query;
     }
-    if ( $query->is_front_page() && $query->is_main_query() ) {
+
+    if(is_search()) {
+        var_dump($_GET);
+        $query->set( 's', false);
+        $query->set( 'post_type', array( 'object' ) );
+        $query->set( 'posts_per_page', 5 );
+        $query->set( 'post_status', 'publish' );  
+    } else if ( $query->is_front_page() && $query->is_main_query() && !is_search()) {
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );
         $query->set( 'post_status', 'publish' );
@@ -50,6 +57,9 @@ function load_objects( $query ) {
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );
         $query->set( 'post_status', 'publish' );
+    }
+
+    if(is_search()) {
     }
 }
 add_action( 'pre_get_posts', 'load_objects' );

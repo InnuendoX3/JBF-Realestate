@@ -11612,46 +11612,51 @@ figure.woocommerce-product-gallery__wrapper {
 .gallery-caption {
   display: block; }
 
-#nav_menu-2 .menu-sidebar-1-container ul {
-  list-style-type: none;
-  color: white;
-  padding: 0; }
-  #nav_menu-2 .menu-sidebar-1-container ul li {
-    margin-top: 10px; }
-    #nav_menu-2 .menu-sidebar-1-container ul li a {
-      color: rgba(0, 0, 0, 0.8);
-      background: rgba(0, 0, 0, 0.05);
-      padding: 5px;
-      padding-left: 10px;
-      width: 100%;
-      display: block;
-      border-bottom: 4px solid #28a533;
-      border-radius: 5px 5px 0 0; }
-      #nav_menu-2 .menu-sidebar-1-container ul li a:hover {
-        text-decoration: none;
-        background: lightgray; }
-    #nav_menu-2 .menu-sidebar-1-container ul li ul li {
-      margin-top: 0; }
-      #nav_menu-2 .menu-sidebar-1-container ul li ul li a {
-        background: white;
-        padding-left: 14px;
-        border: none;
-        color: rgba(0, 0, 0, 0.6);
-        border-radius: 0;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-top: none; }
-      #nav_menu-2 .menu-sidebar-1-container ul li ul li:hover {
-        border: none; }
+#nav_menu-2 {
+  margin-top: -10px;
+  width: 100%; }
+  #nav_menu-2 .menu-sidebar-1-container ul {
+    list-style-type: none;
+    color: white;
+    padding: 0; }
+    #nav_menu-2 .menu-sidebar-1-container ul li {
+      margin-top: 10px;
+      -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
+              box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1); }
+      #nav_menu-2 .menu-sidebar-1-container ul li a {
+        color: white;
+        background: #28a533;
+        padding: 5px;
+        padding-left: 10px;
+        width: 100%;
+        display: block;
+        border-radius: 5px 5px 0 0; }
+        #nav_menu-2 .menu-sidebar-1-container ul li a:hover {
+          text-decoration: none;
+          background: lightgray; }
+      #nav_menu-2 .menu-sidebar-1-container ul li ul li {
+        margin-top: 0; }
+        #nav_menu-2 .menu-sidebar-1-container ul li ul li a {
+          background: white;
+          padding-left: 14px;
+          border: none;
+          color: rgba(0, 0, 0, 0.6);
+          border-radius: 0;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-top: none; }
+        #nav_menu-2 .menu-sidebar-1-container ul li ul li:hover {
+          border: none; }
 
 /*.object-card {
+
     
 }*/
 .object-container {
   padding: 0;
   margin-bottom: 16px;
   border: 1px solid #ddd;
-  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
   margin-left: 0px;
   overflow: hidden; }
   .object-container .col-8 {
@@ -11708,7 +11713,6 @@ figure.woocommerce-product-gallery__wrapper {
   font-size: 18px;
   font-weight: 400; }
 
-<<<<<<< HEAD
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11716,21 +11720,46 @@ figure.woocommerce-product-gallery__wrapper {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
-  .container .omoss-content-container .omoss-container {
-    padding: 20px;
-    margin-bottom: 16px;
-    max-width: 50vw;
-    margin-left: 0px;
-    overflow: hidden; }
-    .container .omoss-content-container .omoss-container .omoss-title {
-      font-size: 24px;
-      color: #28a533; }
-    .container .omoss-content-container .omoss-container .omoss-paragrafs {
-      font-size: 16px; }
-=======
+
+.jbf-transparent-primary {
+  background: #28a53283;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 15px 0; }
+  .jbf-transparent-primary h5 {
+    margin: 0; }
+
+.omoss-content-container .omoss-container {
+  padding: 20px;
+  margin-bottom: 16px;
+  max-width: 50vw;
+  margin-left: 0px;
+  overflow: hidden; }
+  .omoss-content-container .omoss-container .omoss-title {
+    font-size: 24px;
+    color: #28a533; }
+  .omoss-content-container .omoss-container .omoss-paragrafs {
+    font-size: 16px; }
+
 .hidden {
   display: none; }
->>>>>>> 340b47c6b0dcb6c0ac86cd92e1259312b4792d71
+
+.collapsed {
+  height: 0;
+  overflow: hidden; }
+
+#jbf-search {
+  width: 100%; }
+  #jbf-search #jbf-search-tags .jbf-checkbox label {
+    color: white;
+    display: inline-block;
+    background: #9e9e9e;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1); }
+  #jbf-search input[type=submit] {
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1); }
 
 /*
 * Use existing Bootstrap 4 classes and

@@ -23,9 +23,14 @@
                             style = "
                                 background: url(<?php echo $img ?>);
                                 background-size: cover;
-                                background-position: center;
-                                "
+                                background-position: center;"
                             >
+                        </div>
+                        <div class="carousel-caption d-none jbf-transparent-primary d-md-block">
+                            <h5 class="">
+                                <i class="fas fa-star align-center"></i>
+                                 Utvalt objekt
+                            </h5>
                         </div>
                     <?php endforeach; ?>
                     </a>
@@ -62,7 +67,6 @@
                         echo jbf_formatted_description($description) . ".";
                     ?>
                 </p>
-                <p></p>
         </div>
     </div>
 <?php endif; ?>
