@@ -29,7 +29,6 @@ $container = get_theme_mod( 'understrap_container_type' );
     	<div class="row">
         
             <div class="col-md-8">
-                <br>
                 <main class="site-main" id="main">
 
                     <?php 

@@ -11744,6 +11744,9 @@ figure.woocommerce-product-gallery__wrapper {
     float: right;
     font-weight: 800; }
 
+.jumbotron {
+  height: 400px; }
+
 /*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style
