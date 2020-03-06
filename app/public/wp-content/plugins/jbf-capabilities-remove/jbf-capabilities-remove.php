@@ -53,3 +53,36 @@ function remove_editor_capabilities() {
 
 add_action( 'init', 'remove_author_capabilities' );
 add_action( 'init', 'remove_editor_capabilities' );
+
+
+/**
+ * Restore capabilities when deleting plugin
+ */
+
+function restore_capabilities() {
+    $author = get_role( 'author' );
+    $editor = get_role( 'editor' );
+
+    // Author's capabilites
+    $author_caps = array(
+        'delete_posts',
+        'delete_published_posts',
+        'publish_posts'
+    );
+
+    foreach ( $author_caps as $cap ) {
+        $author->add_cap( $cap );
+    }
+
+    // Editor's capabilities
+    $editor_caps = array(
+        'delete_posts',
+        'delete_published_posts'
+    );
+
+    foreach ( $editor_caps as $cap ) {
+        $editor->add_cap( $cap );
+    }
+}
+
+register_deactivation_hook(__FILE__, 'restore_capabilities');
