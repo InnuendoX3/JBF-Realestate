@@ -63,3 +63,9 @@ function load_objects( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'load_objects' );
+
+function jbf_load_fontawesome()
+{
+    wp_enqueue_script('fcc82c8a72.js', 'https://kit.fontawesome.com/fcc82c8a72.js');
+}
+add_action('wp_enqueue_scripts','jbf_load_fontawesome');

@@ -11742,6 +11742,13 @@ figure.woocommerce-product-gallery__wrapper {
   .omoss-content-container .omoss-container .omoss-paragrafs {
     font-size: 16px; }
 
+.omoss-content-container .kontakt-content-container {
+  padding: 20px;
+  margin-bottom: 16px;
+  max-width: 50vw; }
+  .omoss-content-container .kontakt-content-container .wpcf7, .omoss-content-container .kontakt-content-container .kontakt-contact-form {
+    float: left; }
+
 .hidden {
   display: none; }
 
