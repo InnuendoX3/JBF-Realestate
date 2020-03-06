@@ -8,8 +8,9 @@
 
 
 /** 
- *  En author ska kunna lägga till och redigera egna objekt 
- *  men inte publicera dem.
+ *  En author ska kunna lägga till egna object: Done
+ *  redigera egna objekt:                       Not (Äger inte längre)
+ *  men inte publicera dem:                     Done
  */
 function remove_author_capabilities() {
 
@@ -28,8 +29,9 @@ function remove_author_capabilities() {
 
 
 /**
- * En editor ska kunna lägga till, redigera och publicera/avpublicera 
- * egna och andras objekt.
+ * En editor ska kunna lägga till:          Done
+ * redigera och publ/avpublicera egna:      ?
+ * redigera och publ/avpublicera andras:    ?
  */
 function remove_editor_capabilities() {
 
