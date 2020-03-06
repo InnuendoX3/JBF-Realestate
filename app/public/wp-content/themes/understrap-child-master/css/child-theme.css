@@ -11736,6 +11736,14 @@ figure.woocommerce-product-gallery__wrapper {
 .hidden {
   display: none; }
 
+.nav-custom-container .nav-links {
+  font-weight: 800; }
+  .nav-custom-container .nav-links .nav-previous {
+    float: left; }
+  .nav-custom-container .nav-links .nav-next {
+    float: right;
+    font-weight: 800; }
+
 /*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style
