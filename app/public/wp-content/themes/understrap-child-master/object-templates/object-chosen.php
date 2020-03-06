@@ -5,8 +5,7 @@
 
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
-    <script src="https://kit.fontawesome.com/fcc82c8a72.js" crossorigin="anonymous"></script>
-    <div class="row rounded object-container">
+    <div class="row rounded object-container w-100">
 
         <!-- IMAGE CAROUSEL TEMPLATE -->
         <div class="col-xl-8 col-lg-12 object-carousel">

@@ -125,12 +125,15 @@ class jbf_search extends WP_Widget
 
         ?>
             <div id="jbf-search-tags" class="">
-            <?php foreach($tags as $tag) : ?>
+            <?php foreach($tags as $key => $tag) : ?>
+                
                 <span class="jbf-checkbox">
                     <input 
-                        type="checkbox" 
+                        type="input" 
                         class="hidden"
-                        name="<?php echo $tag->slug.'-tag' ?>"
+                        name="<?php echo "tax".($key) ?>"
+                        value="<?php echo $tag->slug ?>"
+                        disabled
                         id="<?php echo $tag->slug.'-tag'?>">
                     <label 
                         class="btn" 

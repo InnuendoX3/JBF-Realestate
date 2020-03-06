@@ -5,10 +5,10 @@
 
 <?php if(count($images) > 0) :?>
     <!-- MAIN OBJECT TEMPLATE -->
-    <div class="row rounded object-container">
+    <div class="row rounded object-container w-100">
 
         <!-- IMAGE CAROUSEL TEMPLATE -->
-        <div class="col-xl-8 col-lg-12 object-carousel">
+        <div class="col-xl-8 col-lg-12 object-carousel w-100">
             <div id="<?php echo "object".$id?>" class="carousel slide" data-ride="carousel" style="width: 100%;">
                 <div class="carousel-inner"> 
                     <a href="<?php the_permalink(); ?>">

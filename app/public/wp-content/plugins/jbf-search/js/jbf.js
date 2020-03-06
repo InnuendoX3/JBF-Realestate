@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     let categorySelector = document.querySelector('#jbf-category-parents');
     let form = document.querySelector('#jbf-search');
-    let checkboxes = Array.from(document.querySelectorAll('.jbf-checkbox'));
-    let checkboxContainer = document.querySelector('#jbf-search-tags');
-    console.log(checkboxes);
+    let tags = Array.from(document.querySelectorAll('.jbf-checkbox'));
+    //let checkboxContainer = document.querySelector('#jbf-search-tags');
     let categoryChildren;
     
     if(categorySelector) {
@@ -35,11 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
         })*/
     }
 
-    checkboxes.forEach(container => {
-        checkbox = container.querySelector('input');
-        checkbox.addEventListener('click', () => {
-            label = container.querySelector('label');
-            label.classList.toggle('bg-primary');
+    tags.forEach(container => {
+        label = container.querySelector('label');
+        label.addEventListener('click', (e) => {
+            console.log(e.target);
+            input = e.target.parentNode.querySelector('input');
+            if(!input.hasAttribute('disabled')) {
+                input.setAttribute('disabled', 'disabled');
+            } else {
+                input.removeAttribute('disabled');
+            }
+
+            e.target.classList.toggle('bg-primary');
         })
     })
 

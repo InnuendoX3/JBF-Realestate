@@ -38,11 +38,57 @@ function load_objects( $query ) {
     }
 
     if(is_search()) {
-        var_dump($_GET);
         $query->set( 's', false);
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );
-        $query->set( 'post_status', 'publish' );  
+        $query->set( 'post_status', 'publish' ); 
+
+        $tax_query = $query->tax_query;
+
+        //var_dump($_GET);
+
+        $tags = [];
+
+        foreach($_GET as $key => $value) {
+            if(strpos($key, 'tax') !== false) {
+                $tags[] = str_replace('tax', '', $key);
+            }
+        }
+
+        /*$tax_query = array(
+            array(
+                'taxonomy'         => 'post_tag',
+                'terms'            => 'nara-naturen',
+                'field'            => 'slug',
+                'operator'         => 'AND',
+            ),
+        );*/
+
+        //var_dump(implode(',',$tags));
+        /*$tax_query->queries[] = $tax_query = array(
+            array(
+                'taxonomy'         => 'post_tag',
+                'terms'            => 'nara-naturen',
+                'field'            => 'slug',
+                'operator'         => 'AND',
+            ),
+        );*/
+
+        var_dump($tax_query->queries);
+        
+        $query->tax_query->queries[] = array(
+            array(
+                'taxonomy'         => 'post_tag',
+                'terms'            => $tags,
+                'field'            => 'term_id',
+                'operator'         => 'AND',
+            ),
+        );
+        
+        var_dump($query->tax_query->queries[1]);
+        //$tax_query[0]['taxonomy'] .= ",";
+        
+        //var_dump($tax_query);
     } else if ( $query->is_front_page() && $query->is_main_query() && !is_search()) {
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );
@@ -57,9 +103,6 @@ function load_objects( $query ) {
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );
         $query->set( 'post_status', 'publish' );
-    }
-
-    if(is_search()) {
     }
 }
 add_action( 'pre_get_posts', 'load_objects' );

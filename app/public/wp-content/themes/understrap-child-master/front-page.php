@@ -26,10 +26,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="wrapper" id="index-wrapper">
 
     <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-    	<div class="row">
+    	<div class="row w-100">
         
-            <div class="col-md-8">
-                <main class="site-main" id="main">
+            <div class="col-md-8 w-100">
+                <main class="site-main w-100" id="main">
 
                     <?php 
 

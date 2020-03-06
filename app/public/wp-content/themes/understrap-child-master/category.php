@@ -26,10 +26,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="wrapper" id="index-wrapper">
 
     <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-		<div class="row object-card">
+		<div class="row w-100">
         
-            <div class="col-md-8">
-                <main class="site-main" id="main">
+            <div class="col-md-8 w-100">
+                <main class="site-main w-100" id="main">
                     <?php 
                     $category = get_queried_object()->slug;
                     $args = [
@@ -48,9 +48,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     <?php while($query_loop->have_posts()) : ?>
                         <?php $query_loop->the_post(); ?>
-                        <div class="pt-2 pb-2">
                             <?php get_template_part('object-templates/object-chosen'); ?>
-                        </div>
                     <?php endwhile; 
 
                     wp_reset_postdata();

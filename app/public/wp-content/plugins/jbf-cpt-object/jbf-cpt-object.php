@@ -72,6 +72,8 @@ function cptui_register_my_cpts() {
     ];
 
     register_post_type( "object", $args );
+
+    
 }
 
 add_action( 'init', 'cptui_register_my_cpts' );
