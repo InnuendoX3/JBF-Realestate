@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: JBF Capabilities (Remove)
+ * Plugin Name: JBF Modify Capabilities
  * Description: Disable Author for deleting/publishing objects. Disable Editor for deleting objects.
  * Version: 1.0
  * Author: Johan - Bryan - Fabian
@@ -54,9 +54,16 @@ function remove_editor_capabilities() {
 add_action( 'init', 'remove_author_capabilities' );
 add_action( 'init', 'remove_editor_capabilities' );
 
+function modify_all_capabilities() {
+    remove_author_capabilities();
+    remove_editor_capabilities();
+}
+
+register_activation_hook( __FILE__, 'modify_all_capabilities' );
+
 
 /**
- * Restore capabilities when deleting plugin
+ * Restore capabilities when desactivating plugin
  */
 
 function restore_capabilities() {
