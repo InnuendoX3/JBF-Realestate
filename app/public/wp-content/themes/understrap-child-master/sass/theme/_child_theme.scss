@@ -1,21 +1,26 @@
+$boxshadow: 0px 4px 5px 0px rgba(0,0,0,0.1);
+
 #nav_menu-2 {
+    margin-top: -10px;
+    width: 100%;
     .menu-sidebar-1-container {
         ul {
             list-style-type: none;
             color: white;
             padding: 0;
-
+            
             li {
                 margin-top: 10px;
+                box-shadow: $boxshadow;
 
                 a {
-                    color: rgba(0,0,0,0.8);
-                    background: rgba(0,0,0,0.05);;
+                    color: white;
+                    background: #28a533;
                     padding: 5px;
                     padding-left: 10px;
                     width: 100%;
                     display: block;
-                    border-bottom: 4px solid #28a533;
+                    //border-bottom: 4px solid #28a533;
                     border-radius: 5px 5px 0 0;
 
                     &:hover {
@@ -47,13 +52,14 @@
     }
 }
 /*.object-card {
+
     
 }*/
 .object-container {
     padding: 0;
     margin-bottom: 16px;
     border:1px solid #ddd;
-    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: $boxshadow;
     margin-left: 0px;
     overflow: hidden;
 
@@ -81,6 +87,7 @@
 .object-container:hover {
     border:1px solid #28a533;
 }
+
 .object-info-container {
     overflow:auto;
     .object-title {
@@ -104,14 +111,17 @@
         font-weight: 700;
     }
 }
+
 .single-object-container {
     border-top: 1px solid #c5c0c0;
 }
+
 .single-title {
     font-size: 28px;
     font-weight: 500;
     color: #333;
 }
+
 .single-utgangsbud {
     font-size: 18px;
     color: #333;
@@ -128,25 +138,38 @@
 .container {
     display: flex;
     justify-content: center;
+}
 
-    .omoss-content-container {
+.jbf-transparent-primary {
+    background: #28a53283;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 15px 0;
 
-        .omoss-container {
-            padding: 20px;
-            margin-bottom: 16px;
-            max-width: 50vw;
-            margin-left: 0px;
-            overflow: hidden;
+    h5 {
+        margin: 0;
+    }
+}
+
+.omoss-content-container {
+
+    .omoss-container {
+        padding: 20px;
+        margin-bottom: 16px;
+        max-width: 50vw;
+        margin-left: 0px;
+        overflow: hidden;
         
-            .omoss-title {
-                font-size: 24px;
-                color: #28a533;
-            }
-            .omoss-paragrafs {
-                font-size: 16px;
-            }
+        .omoss-title {
+            font-size: 24px;
+            color: #28a533;
+        }
+        .omoss-paragrafs {
+            font-size: 16px;
         }
     }
+
     .kontakt-content-container {
         padding: 20px;
         margin-bottom: 16px;
@@ -162,6 +185,28 @@
     display: none;
 }
 
+.collapsed {
+    height: 0;
+    overflow: hidden;
+}
+
+#jbf-search {
+    width: 100%;
+    #jbf-search-tags {
+        .jbf-checkbox {
+            label {
+                color: white;
+                display: inline-block;
+                background: rgb(158, 158, 158);
+                box-shadow: $boxshadow;
+            }
+        }
+    }
+
+    input[type=submit] {
+        box-shadow: $boxshadow;
+    }
+}
 .nav-custom-container {
     .nav-links {
         font-weight: 800;
@@ -178,5 +223,12 @@
 
 .jumbotron {
     height: 400px;
+    .jumbo-title {
+        margin-top: 100px;
+        color: white;
+    }
+    .jumbo-slogan {
+        color: white;
+    }
 }
 
