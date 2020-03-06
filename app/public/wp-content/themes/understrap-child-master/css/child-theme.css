@@ -11768,6 +11768,14 @@ figure.woocommerce-product-gallery__wrapper {
     -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1); }
 
+.nav-custom-container .nav-links {
+  font-weight: 800; }
+  .nav-custom-container .nav-links .nav-previous {
+    float: left; }
+  .nav-custom-container .nav-links .nav-next {
+    float: right;
+    font-weight: 800; }
+
 /*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style

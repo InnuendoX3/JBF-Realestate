@@ -207,3 +207,18 @@ $boxshadow: 0px 4px 5px 0px rgba(0,0,0,0.1);
         box-shadow: $boxshadow;
     }
 }
+.nav-custom-container {
+    .nav-links {
+        font-weight: 800;
+        
+        .nav-previous {
+            float: left;
+        }
+       .nav-next {
+            float: right;
+            font-weight: 800;
+        }
+    }
+}
+
+
