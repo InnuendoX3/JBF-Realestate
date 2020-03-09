@@ -2,7 +2,7 @@
 /**
  * Plugin Name: JBF Object - Custom Post Type
  * Description: Custom Post Type for the JBF Object
- * Version: 1.0
+ * Version: 1.2
  * Author: Johan - Bryan - Fabian
  */
 
@@ -67,13 +67,12 @@ function cptui_register_my_cpts() {
         "hierarchical" => false,
         "rewrite" => [ "slug" => "object", "with_front" => true ],
         "query_var" => true,
-        "supports" => [ "title", "editor", "thumbnail", "custom-fields" ],
-        "taxonomies" => [ "category", "post_tag", "ngg_tag" ],
+        "supports" => [ "title", "editor", "thumbnail", "custom-fields", "author" ],
+        "taxonomies" => [ "category", "post_tag" ],
     ];
 
     register_post_type( "object", $args );
-
-    
 }
 
 add_action( 'init', 'cptui_register_my_cpts' );
+

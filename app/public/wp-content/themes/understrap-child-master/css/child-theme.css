@@ -11776,6 +11776,26 @@ figure.woocommerce-product-gallery__wrapper {
     float: right;
     font-weight: 800; }
 
+.container-jumbo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr; }
+  .container-jumbo .jumbotron {
+    z-index: -1;
+    grid-row: 1;
+    grid-column: 1/5;
+    height: 400px; }
+  .container-jumbo .jumbo-title {
+    margin: auto;
+    grid-row: 1;
+    grid-column: 1/5;
+    color: white; }
+  .container-jumbo .jumbo-slogan {
+    margin-top: 220px;
+    grid-row: 1;
+    grid-column: 2/4;
+    color: white; }
+
 /*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style

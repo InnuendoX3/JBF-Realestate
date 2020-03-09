@@ -31,6 +31,7 @@ $container = get_theme_mod( 'understrap_container_type' );
             <div class="col-md-8 w-100">
                 <main class="site-main w-100" id="main">
 
+
                     <?php 
 
                     //Main loop
