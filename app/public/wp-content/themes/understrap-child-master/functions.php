@@ -51,41 +51,23 @@ function load_objects( $query ) {
 
         foreach($_GET as $key => $value) {
             if(strpos($key, 'tax') !== false) {
-                $tags[] = str_replace('tax', '', $key);
+                $tags[] = (int)str_replace('tax', '', $key);
             }
         }
-
-        /*$tax_query = array(
-            array(
-                'taxonomy'         => 'post_tag',
-                'terms'            => 'nara-naturen',
-                'field'            => 'slug',
-                'operator'         => 'AND',
-            ),
-        );*/
-
-        //var_dump(implode(',',$tags));
-        /*$tax_query->queries[] = $tax_query = array(
-            array(
-                'taxonomy'         => 'post_tag',
-                'terms'            => 'nara-naturen',
-                'field'            => 'slug',
-                'operator'         => 'AND',
-            ),
-        );*/
-
-        var_dump($tax_query->queries);
         
-        $query->tax_query->queries[] = array(
+        /*$tax_query->queries[] = array(
             array(
                 'taxonomy'         => 'post_tag',
                 'terms'            => $tags,
                 'field'            => 'term_id',
                 'operator'         => 'AND',
+                'include_children' => false
             ),
-        );
+        );*/
+
+        $query->set('tag__in', $tags);
         
-        var_dump($query->tax_query->queries[1]);
+        var_dump($query->tax_query->queries);
         //$tax_query[0]['taxonomy'] .= ",";
         
         //var_dump($tax_query);
