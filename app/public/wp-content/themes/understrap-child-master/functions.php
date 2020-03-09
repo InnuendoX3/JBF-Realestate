@@ -43,9 +43,9 @@ function load_objects( $query ) {
         $query->set( 'posts_per_page', 5 );
         $query->set( 'post_status', 'publish' ); 
 
-        $living_space = [
-            'max' => $_GET['maxspace'] ?? null,
-            'min' => $_GET['minspace'] ?? null,
+        $rooms = [
+            'max' => $_GET['maxrooms'] ?? null,
+            'min' => $_GET['minrooms'] ?? null,
         ];
 
         $price = [
@@ -65,10 +65,10 @@ function load_objects( $query ) {
 
         $meta_query = ['relation' => 'AND'];
 
-        foreach($living_space as $key => $value) {
+        foreach($rooms as $key => $value) {
             if( !empty($value) ) {
                 $meta_query[] = array(
-                    'key' => 'boarea',
+                    'key' => 'antal_rum',
                     'value' => (int)sanitize_text_field($value),
                     'type' => 'numeric',
                     'compare' => $key === 'max' ? '<=' : '>='
@@ -87,11 +87,7 @@ function load_objects( $query ) {
             }
         }
 
-        var_dump($meta_query);
-
         $query->set('meta_query', $meta_query);
-        
-        var_dump($_GET);
 
     } else if ( $query->is_front_page() && $query->is_main_query() && !is_search()) {
         $query->set( 'post_type', array( 'object' ) );

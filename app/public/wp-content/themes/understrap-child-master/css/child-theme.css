@@ -11646,6 +11646,8 @@ figure.woocommerce-product-gallery__wrapper {
           border-top: none; }
         #nav_menu-2 .menu-sidebar-1-container ul li ul li:hover {
           border: none; }
+    #nav_menu-2 .menu-sidebar-1-container ul #menu-item-98 a {
+      border-radius: 5px; }
 
 /*.object-card {
 

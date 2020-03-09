@@ -105,6 +105,7 @@ class jbf_search extends WP_Widget
                 <!-- CHILD CATEGORY RENDERING -->
                 <div id="jbf-search-category-children">
                     <?php foreach($category_hierarchy as $category) : ?>
+                        <?php if( count($category['children']) ) : ?>
                         <select class="form-control mb-2 hidden" name="cat" id="<?php echo $category['term_id'].'-child' ?>">
                             <option value="">Välj typ av <?php echo strtolower( $category['name'] ) ?></option>
                             <?php foreach($category['children'] as $child) : ?>
@@ -112,6 +113,7 @@ class jbf_search extends WP_Widget
                                     <?php echo $child['name'] ?>
                                 </option>
                             <?php endforeach; ?>
+                            <?php endif;?>
                         </select>
                     <?php endforeach; ?>
                 </div>
@@ -155,10 +157,10 @@ class jbf_search extends WP_Widget
 
             <div class="row mb-2">
                 <div class="col-6">
-                    <input type="number" id="min-space" name="minspace" min="0" placeholder="Min boarea" class="form-control w-100">
+                    <input type="number" id="min-rooms" name="minrooms" min="0" placeholder="Min antal rum" class="form-control w-100">
                 </div>
                 <div class="col-6">
-                    <input type="number" id="max-space" name="maxspace" min="0" placeholder="Max boarea" class="form-control w-100">
+                    <input type="number" id="max-rooms" name="maxrooms" min="0" placeholder="Max antal rum" class="form-control w-100">
                 </div>
             </div>
 
