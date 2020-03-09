@@ -35,10 +35,17 @@ $container = get_theme_mod( 'understrap_container_type' );
                     <?php 
 
                     //Main loop
-                    while(have_posts() ) :
-                        the_post();                      
-                        get_template_part('object-templates/object-chosen');
+                    if(have_posts()) {
+                        while(have_posts() ) :
+                            the_post();                      
+                            get_template_part('object-templates/object-chosen');
                         endwhile;
+                    } else {
+                        ?>
+                            <h5>Inga resultat matchade sökningen</h5>
+                        <?php
+                    }
+
                     ?>
 
                 </main><!-- #main -->

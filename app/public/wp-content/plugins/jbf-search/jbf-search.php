@@ -106,7 +106,7 @@ class jbf_search extends WP_Widget
                 <div id="jbf-search-category-children">
                     <?php foreach($category_hierarchy as $category) : ?>
                         <select class="form-control mb-2 hidden" name="cat" id="<?php echo $category['term_id'].'-child' ?>">
-                            <option value="">...</option>
+                            <option value="">Välj typ av <?php echo strtolower( $category['name'] ) ?></option>
                             <?php foreach($category['children'] as $child) : ?>
                                 <option value="<?php echo $child['term_id'] ?>">
                                     <?php echo $child['name'] ?>
@@ -144,7 +144,25 @@ class jbf_search extends WP_Widget
             <?php endforeach; ?>
             </div>
 
-            <input type="submit" class="btn btn-primary w-100" value="Sök">
+            <div class="row mb-2">
+                <div class="col-6">
+                    <input type="number" id="min-price" name="minprice" min="0" placeholder="Lägsta pris" class="form-control w-100">
+                </div>
+                <div class="col-6">
+                    <input type="number" id="max-price" name="maxprice" min="0" placeholder="Högsta pris" class="form-control w-100">
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-6">
+                    <input type="number" id="min-space" name="minspace" min="0" placeholder="Min boarea" class="form-control w-100">
+                </div>
+                <div class="col-6">
+                    <input type="number" id="max-space" name="maxspace" min="0" placeholder="Max boarea" class="form-control w-100">
+                </div>
+            </div>
+
+            <input type="submit" disabled id="jbf-search-submit" class="btn btn-primary w-100" value="Sök">
             </form>
         <?php
     }

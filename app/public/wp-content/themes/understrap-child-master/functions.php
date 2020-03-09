@@ -43,34 +43,56 @@ function load_objects( $query ) {
         $query->set( 'posts_per_page', 5 );
         $query->set( 'post_status', 'publish' ); 
 
-        $tax_query = $query->tax_query;
+        $living_space = [
+            'max' => $_GET['maxspace'] ?? null,
+            'min' => $_GET['minspace'] ?? null,
+        ];
 
-        //var_dump($_GET);
+        $price = [
+            'max' => $_GET['maxprice'] ?? null,
+            'min' => $_GET['minprice'] ?? null,
+        ];
 
         $tags = [];
 
         foreach($_GET as $key => $value) {
             if(strpos($key, 'tax') !== false) {
-                $tags[] = (int)str_replace('tax', '', $key);
+                $tags[] = sanitize_text_field($value); 
             }
         }
-        
-        /*$tax_query->queries[] = array(
-            array(
-                'taxonomy'         => 'post_tag',
-                'terms'            => $tags,
-                'field'            => 'term_id',
-                'operator'         => 'AND',
-                'include_children' => false
-            ),
-        );*/
 
-        $query->set('tag__in', $tags);
+        $query->set('tag_slug__and', $tags);
+
+        $meta_query = ['relation' => 'AND'];
+
+        foreach($living_space as $key => $value) {
+            if( !empty($value) ) {
+                $meta_query[] = array(
+                    'key' => 'boarea',
+                    'value' => (int)sanitize_text_field($value),
+                    'type' => 'numeric',
+                    'compare' => $key === 'max' ? '<=' : '>='
+                );
+            }
+        }
+
+        foreach($price as $key => $value) {
+            if( !empty($value) ) {
+                $meta_query[] = array(
+                    'key' => 'utgangsbud',
+                    'value' => (int)sanitize_text_field($value),
+                    'type' => 'numeric',
+                    'compare' => $key === 'max' ? '<=' : '>='
+                );
+            }
+        }
+
+        var_dump($meta_query);
+
+        $query->set('meta_query', $meta_query);
         
-        var_dump($query->tax_query->queries);
-        //$tax_query[0]['taxonomy'] .= ",";
-        
-        //var_dump($tax_query);
+        var_dump($_GET);
+
     } else if ( $query->is_front_page() && $query->is_main_query() && !is_search()) {
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );

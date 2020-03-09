@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let categorySelector = document.querySelector('#jbf-category-parents');
     let form = document.querySelector('#jbf-search');
     let tags = Array.from(document.querySelectorAll('.jbf-checkbox'));
-    //let checkboxContainer = document.querySelector('#jbf-search-tags');
+    let submitBtn = document.querySelector('#jbf-search-submit');
     let categoryChildren;
     
     if(categorySelector) {
@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         categorySelector.addEventListener('change', () => {
+            categorySelector.value ?
+                submitBtn.removeAttribute('disabled') :
+                submitBtn.setAttribute('disabled', 'disabled') 
+
             let selected = categorySelector.value + '-child';
             categoryChildren.forEach((child) => {
                 if(child.id == selected) {
@@ -22,16 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
         })
-
-        /*categoryChildren.forEach(child => {
-            child.addEventListener('change', () => {
-                if(child.value !== "") {
-                    checkboxContainer.classList.remove('collapsed');
-                } else {
-                    checkboxContainer.classList.add('collapsed');
-                }
-            })
-        })*/
     }
 
     tags.forEach(container => {
