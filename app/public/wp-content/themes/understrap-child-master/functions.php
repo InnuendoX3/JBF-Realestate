@@ -32,63 +32,76 @@ function add_child_theme_textdomain() {
 }
 add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 
+function jbf_generate_search_query($query) {
+    $query->set( 's', false );
+    $query->set( 'post_type', array( 'object' ) );
+    $query->set( 'posts_per_page', 5 );
+    $query->set( 'post_status', 'publish' ); 
+
+    $rooms = [
+        'max' => $_GET['maxrooms'] ?? null,
+        'min' => $_GET['minrooms'] ?? null,
+    ];
+
+    $price = [
+        'max' => $_GET['maxprice'] ?? null,
+        'min' => $_GET['minprice'] ?? null,
+    ];
+
+    $tags = [];
+
+    foreach($_GET as $key => $value) {
+        if(strpos($key, 'tax') !== false) {
+            $tags[] = sanitize_text_field($value); 
+        }
+    }
+
+    $query->set('tag_slug__and', $tags);
+
+    $meta_query = ['relation' => 'AND'];
+
+    foreach($rooms as $key => $value) {
+        if( !empty($value) ) {
+            $meta_query[] = array(
+                'key' => 'antal_rum',
+                'value' => (int)sanitize_text_field($value),
+                'type' => 'numeric',
+                'compare' => $key === 'max' ? '<=' : '>='
+            );
+        }
+    }
+
+    foreach($price as $key => $value) {
+        if( !empty($value) ) {
+            $meta_query[] = array(
+                'key' => 'utgangsbud',
+                'value' => (int)sanitize_text_field($value),
+                'type' => 'numeric',
+                'compare' => $key === 'max' ? '<=' : '>='
+            );
+        }
+    }
+
+    if(!empty($_GET['s'])) {
+        $meta_query[] = [
+            'key' => 'adress',
+            'value' => sanitize_text_field($_GET['s']),
+            'compare' => 'LIKE'
+        ];
+    }
+
+    $query->set('meta_query', $meta_query);
+
+    return $query;
+}
+
 function load_objects( $query ) {
     if (is_admin() || !$query->is_main_query()) {
         return $query;
     }
 
     if(is_search()) {
-        $query->set( 's', false);
-        $query->set( 'post_type', array( 'object' ) );
-        $query->set( 'posts_per_page', 5 );
-        $query->set( 'post_status', 'publish' ); 
-
-        $rooms = [
-            'max' => $_GET['maxrooms'] ?? null,
-            'min' => $_GET['minrooms'] ?? null,
-        ];
-
-        $price = [
-            'max' => $_GET['maxprice'] ?? null,
-            'min' => $_GET['minprice'] ?? null,
-        ];
-
-        $tags = [];
-
-        foreach($_GET as $key => $value) {
-            if(strpos($key, 'tax') !== false) {
-                $tags[] = sanitize_text_field($value); 
-            }
-        }
-
-        $query->set('tag_slug__and', $tags);
-
-        $meta_query = ['relation' => 'AND'];
-
-        foreach($rooms as $key => $value) {
-            if( !empty($value) ) {
-                $meta_query[] = array(
-                    'key' => 'antal_rum',
-                    'value' => (int)sanitize_text_field($value),
-                    'type' => 'numeric',
-                    'compare' => $key === 'max' ? '<=' : '>='
-                );
-            }
-        }
-
-        foreach($price as $key => $value) {
-            if( !empty($value) ) {
-                $meta_query[] = array(
-                    'key' => 'utgangsbud',
-                    'value' => (int)sanitize_text_field($value),
-                    'type' => 'numeric',
-                    'compare' => $key === 'max' ? '<=' : '>='
-                );
-            }
-        }
-
-        $query->set('meta_query', $meta_query);
-
+        jbf_generate_search_query($query);
     } else if ( $query->is_front_page() && $query->is_main_query() && !is_search()) {
         $query->set( 'post_type', array( 'object' ) );
         $query->set( 'posts_per_page', 5 );

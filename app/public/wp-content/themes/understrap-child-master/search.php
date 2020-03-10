@@ -39,7 +39,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                         
                         get_template_part('object-templates/object-card');
 
-                        endwhile;
+                        endwhile;             
                     ?>
 
                 </main><!-- #main -->

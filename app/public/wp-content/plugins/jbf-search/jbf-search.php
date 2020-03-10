@@ -87,7 +87,7 @@ class jbf_search extends WP_Widget
         ?>
             <h5>Sök</h5>
             <form method="GET" action="<?php echo get_site_url() ?>" id="jbf-search">
-                <input type="hidden" name="s" value="">
+                <input type="text" name="s" value="" placeholder="Ort" class="form-control mb-2">
                 <input type="hidden" name="post_type" value="object">
 
                 <!-- PARENT CATEGORY RENDERING -->

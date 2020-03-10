@@ -33,6 +33,31 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 
                     <?php 
+                    //if(is_search()) :
+                        /*$args = [
+                            'meta_key' => 'utvalt_objekt',
+                            'meta_value' => true
+                        ];*/
+
+                        $query_loop = new WP_Query();
+
+                        $query_loop = jbf_generate_search_query($query_loop);
+
+                        $meta_query = $query_loop->get('meta_query');
+
+                        var_dump('lol');
+
+
+                        ?>
+
+                        <?php while($query_loop->have_posts()) : ?>
+                        <?php $query_loop->the_post(); ?>
+                            <?php get_template_part('object-templates/object-chosen'); ?>
+                        <?php endwhile; 
+
+                        wp_reset_postdata();
+
+                    //endif;
 
                     //Main loop
                     if(have_posts()) {
